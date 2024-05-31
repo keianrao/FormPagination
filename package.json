@@ -1,0 +1,25 @@
+{
+  "name": "com.keianrao.formpagi",
+  "displayName": "FormPagination",
+  "version": "0.0.0",
+  "description": "Test Cordova app with three pages around a form",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Keian Rao",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "cordova-android": "^13.0.0",
+    "cordova-browser": "^7.0.0"
+  },
+  "cordova": {
+    "platforms": [
+      "android",
+      "browser"
+    ]
+  }
+}
