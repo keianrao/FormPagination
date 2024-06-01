@@ -11,41 +11,35 @@ You should have received a copy of the GNU General Public License along with thi
 
 copyright */
 
-const loadStatus = document.getElementById("loadStatus");
-const projectsBox = document.getElementsByTagName("main")[0];
+var loadStatus, projectsBox, headerBox, actionsBox;
 
 //  ---%-@-%---
 
-function getProjects()
+function displayStatus(text, type = null, override = false)
 {
-    let json = window.sessionStorage.getItem("projects");
-    return json == null ? [] : JSON.parse(json);
-}
-
-function addProject(project)
-{
-    let projects = getProjects();
-    projects.push(project);
+    if (loadStatus.getAttribute("class") == "error")
+        if (!override) return;
     
-    let json = JSON.stringify(projects);
-    window.sessionStorage.setItem("projects", json);
+    loadStatus.innerText = text;
+    loadStatus.setAttribute("class", type);
 }
 
 function renderProjects()
 {
-    loadStatus.innerText = "Reading from client-side database...";
+    displayStatus("Reading from client-side database...");
     let projects = getProjects();
     
     if (projects.length == 0)
     {
-        loadStatus.innerText = "First time on page - no projects exist.";
+        displayStatus("First time on page - no projects exist.");
         return;
     }
 
-    loadStatus.innerText = "Listing projects...";
+    displayStatus("Listing projects...");
     for (let project of projects)
     {
         let nameHeader = document.createElement("h3");
+        nameHeader.setAttribute("class", "projname");
         let nameText = document.createTextNode(project.name);
         nameHeader.appendChild(nameText);
 
@@ -53,7 +47,8 @@ function renderProjects()
         versionsBox.setAttribute("class", "versions");
         for (let version of project.versions)
         {
-            let versionItem = document.createElement("version");
+            let versionItem = document.createElement("div");
+            versionItem.setAttribute("class", "version");
             let versionText = document.createTextNode(version);
             versionItem.appendChild(versionText);
             versionsBox.appendChild(versionItem);
@@ -62,31 +57,37 @@ function renderProjects()
         projectsBox.appendChild(nameHeader);
         projectsBox.appendChild(versionsBox);
     }
-    loadStatus.innerText = projects.length + " projects found.";
+    displayStatus(projects.length + " projects found.");
 }
 
-function addProjectFromParams(queryString)
+function addProjectVersionFromParams(queryString)
 {
     let params = new URLSearchParams(queryString);
     
-    loadStatus.innerText = "Adding project...";
-    addProject({
-        "name": params.get("projname"),
-        "versions": [ params.get("semver") ]
-    });
+    displayStatus("Adding project...");
+    let error = addProjectVersion(
+        params.get("projname"), params.get("semver"));
+    if (error) displayStatus(error, "error");
 }
 
 //  ---%-@-%---
 
 function onCordovaDeviceReady()
 {
-    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version + ".");
+    console.log(
+        'Running cordova-' + cordova.platformId
+        + '@' + cordova.version + ".");
 }
 
 function onPageLoad()
 {
+    loadStatus = document.getElementById("loadStatus");
+    projectsBox = document.getElementById("projects");
+    //headerBox = document.getElementById("header");
+    //actionsBox = document.getElementById("actions");
+
     if (window.location.search)
-        addProjectFromParams(window.location.search);
+        addProjectVersionFromParams(window.location.search);
     
     renderProjects();
 }

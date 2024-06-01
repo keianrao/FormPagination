@@ -32,22 +32,16 @@ copyright-->
     </head>
 
     <body>
-        <section>
+        <section id="header">
             <span id="loadStatus">Waiting for page script to run.</span>
         </section>
-        
-        <main>
-            <!--
-                For every project name that exists, we should
-                have a version box with all of their versions.
-            -->
-        </main>
-
-        <section>
+        <main id="projects"></main>
+        <section id="actions">
             <a href="add.html">Add a project version</a>
         </section>
     </body>
 
     <script src="cordova.js"></script>
+    <script src="js/projects.js"></script>
     <script src="js/index.js"></script>
 </html>
