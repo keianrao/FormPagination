@@ -21,7 +21,7 @@ const SEMVER_REGEX = new RegExp(
     + "(?:\\.(?:0|[1-9]\\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*"
     + ")"
     + ")?"
-    + "(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$", "g");
+    + "(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$");
     // From Semantic Versioning spec.
 
 const ENGLISH_ALNUM = /^\w[\w\-]*$/;
@@ -56,14 +56,13 @@ function addProjectVersion(projectName, semanticVersion)
     else if (existingProject)
     {
         existingProject.versions.push(semanticVersion);
+        existingProject.versions.sort(semanticVersionComparator);
     }
     else
     {
         projects.push({
             "name": projectName,
-            "versions": [
-                semanticVersion
-            ]
+            "versions": [ semanticVersion ]
         });
     }
     
@@ -71,13 +70,44 @@ function addProjectVersion(projectName, semanticVersion)
     window.sessionStorage.setItem("projects", json);
 }
 
+function semanticVersionComparator(a, b)
+{
+    function convertGroups(groups)
+    {
+        groups[1] = parseInt(groups[1]);
+        groups[2] = parseInt(groups[2]);
+        groups[3] = parseInt(groups[3]);
+        // Leave the remaining groups be.
+    }    
+    let aGroups = isSemanticVersion(a);
+    let bGroups = isSemanticVersion(b);
+    convertGroups(aGroups);
+    convertGroups(bGroups);
+
+    let majorDiff = aGroups[1] - bGroups[1];
+    let minorDiff = aGroups[2] - bGroups[2];
+    let patchDiff = aGroups[3] - bGroups[3];
+    if (majorDiff) return majorDiff;
+    if (minorDiff) return minorDiff;
+    if (patchDiff) return patchDiff;
+
+    /*
+    * If all are identical then we're supposed to lexically
+    * compare the pre-release version or build metadata.
+    * But I'm not sure how to do that given our capture
+    * group situation (I wanted to substring past the primary
+    * version string). So I'll just consider them equal in
+    * this app.
+    */
+    return 0;
+}
+
 function isValidProjectName(string)
 {
-    return string.match(ENGLISH_ALNUM) != null;
+    return string.match(ENGLISH_ALNUM);
 }
 
 function isSemanticVersion(string)
-{    
-    let captureGroups = string.match(SEMVER_REGEX);
-    return captureGroups != null;
+{
+    return string.match(SEMVER_REGEX);
 }

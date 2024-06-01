@@ -1,7 +1,7 @@
 {
   "name": "com.keianrao.formpagi",
   "displayName": "FormPagination",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Test Cordova app with three pages around a form",
   "main": "index.js",
   "scripts": {
