@@ -25,8 +25,9 @@ function addProjectVersion(projectName, semanticVersion)
     
     let nameMatches = p => p.name == projectName;
     let existingProject = projects.find(nameMatches);
-    let alreadyListsVersion = existingProject.versions
-        .includes(semanticVersion);
+    let alreadyListsVersion =
+        existingProject
+        && existingProject.versions.includes(semanticVersion);
 
     if (existingProject && alreadyListsVersion)
     {
