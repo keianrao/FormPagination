@@ -18,20 +18,38 @@ copyright*/
 body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-
-    background-color:#E4E4E4;
+    user-select: none;
+    
+    background-color: blanchedalmond;
     font-family: system-ui;
-    font-size: 12px;
-    height: 100vh;
-    margin: 0px;
-    padding: 0px;
+    width: 70%;
+    height: 96vh;
+    margin: 2vh auto 0 auto;
     padding:
         env(safe-area-inset-top, 0px)
         env(safe-area-inset-right, 0px)
         env(safe-area-inset-bottom, 0px)
         env(safe-area-inset-left, 0px);
         /* Padding to avoid the "unsafe" areas behind notches in the screen */
-    width: 100%;
+}
+
+.projname {
+    margin: 8px 0 8px 0;
+}
+
+.versions {
+    border: 1px solid #0004;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 0 0 16px 0;
+}
+
+.version {
+
+}
+
+#loadStatus.error {
+    color: darkred;
 }
 
 /* Landscape layout (with min-width) */
