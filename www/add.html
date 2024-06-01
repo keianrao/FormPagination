@@ -19,12 +19,12 @@ copyright-->
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
-        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/add.css">
         <title>Add semantic version</title>
     </head>
 
     <body>
-        <form action="index.html" method="GET">
+        <form method="dialog"><fieldset>
             <section>
                 <label for="projname">Project name:</label>
                 <input id="projname" name="projname" />
@@ -36,6 +36,10 @@ copyright-->
             <section>
                 <input type="Submit" />
             </section>
-        </form>
+            <span id="submitError" hidden></span>
+        </fieldset></form>
     </body>
+
+    <script src="js/projects.js"></script>
+    <script src="js/add.js"></script>
 </html>
