@@ -17,7 +17,7 @@ var loadStatus, projectsBox, headerBox, actionsBox;
 
 function displayStatus(text, type = null, override = false)
 {
-    if (loadStatus.getAttribute("class") == "error")
+    if (loadStatus.getAttribute("class") != "")
         if (!override) return;
     
     loadStatus.innerText = text;
@@ -60,14 +60,21 @@ function renderProjects()
     displayStatus(projects.length + " projects found.");
 }
 
-function addProjectVersionFromParams(queryString)
+function noteRedirect(queryString)
 {
     let params = new URLSearchParams(queryString);
-    
-    displayStatus("Adding project...");
-    let error = addProjectVersion(
-        params.get("projname"), params.get("semver"));
-    if (error) displayStatus(error, "error");
+
+    if (params.get("result") == "success")
+    {
+        let projectName = params.get("projname");
+        let semanticVersion = params.get("semver");
+        if (!projectName) return;
+        if (!semanticVersion) return;
+        displayStatus(
+            "Added version " + semanticVersion
+            + " for project " + projectName + ".",
+            "success");
+    }
 }
 
 //  ---%-@-%---
@@ -87,7 +94,7 @@ function onPageLoad()
     //actionsBox = document.getElementById("actions");
 
     if (window.location.search)
-        addProjectVersionFromParams(window.location.search);
+        noteRedirect(window.location.search);
     
     renderProjects();
 }
