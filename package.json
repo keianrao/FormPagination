@@ -12,15 +12,18 @@
   ],
   "author": "Keian Rao",
   "license": "GPL-3.0-or-later",
+  "cordova": {
+    "platforms": [
+      "browser",
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-device": {}
+    }
+  },
   "devDependencies": {
     "cordova-android": "^13.0.0",
     "cordova-browser": "^7.0.0",
-    "cordova-plugin-browsersync": "^1.1.0"
-  },
-  "cordova": {
-    "platforms": [
-      "android",
-      "browser"
-    ]
+    "cordova-plugin-device": "^2.1.0"
   }
 }
