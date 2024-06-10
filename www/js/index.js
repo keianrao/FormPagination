@@ -15,7 +15,7 @@ var loadStatus, projectsBox, headerBox, actionsBox;
 
 //  ---%-@-%---
 
-function displayStatus(text, type = null, override = false)
+function displayStatus(text, type = "", override = false)
 {
     if (loadStatus.getAttribute("class") != "")
         if (!override) return;
