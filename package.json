@@ -14,13 +14,15 @@
   "license": "GPL-3.0-or-later",
   "cordova": {
     "platforms": [
-      "browser"
+      "browser",
+      "android"
     ],
     "plugins": {
       "cordova-plugin-device": {}
     }
   },
   "devDependencies": {
+    "cordova-android": "^13.0.0",
     "cordova-browser": "^7.0.0",
     "cordova-plugin-device": "^2.1.0"
   }
