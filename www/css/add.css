@@ -12,7 +12,12 @@ You should have received a copy of the GNU General Public License along with thi
 copyright*/
 
 #submitError {
-    color: darkred;
+    color: #ab0000;
+    border: 0.1em solid #ab0000a0;
+    background-color: #FFD0B0;
+    padding: 0.5em 1em;
+    border-radius: 1em;
+    margin-top: 1em;
 }
 
 fieldset {
