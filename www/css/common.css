@@ -33,12 +33,12 @@ body {
         env(safe-area-inset-left, 0px);
         /* Padding to avoid the "unsafe" areas behind notches in the screen */
 
-    animation: 0.25s ease-out entranceFade;
+    animation: 0.4s ease-out entranceFade;
 }
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    
+   
 }
 
 @keyframes entranceFade {
