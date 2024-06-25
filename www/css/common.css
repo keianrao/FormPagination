@@ -1,0 +1,49 @@
+/*copyright
+
+This file is part of FormPagination.
+Written in 2024 by Keian Rao <keian.rao@gmail.com>
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+copyright*/
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+html {
+    background-color: blanchedalmond;
+}
+
+body {
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    user-select: none;
+    
+    font-family: system-ui;
+    width: 70%;
+    height: 96vh;
+    margin: 2vh auto 0 auto;
+    padding:
+        env(safe-area-inset-top, 0px)
+        env(safe-area-inset-right, 0px)
+        env(safe-area-inset-bottom, 0px)
+        env(safe-area-inset-left, 0px);
+        /* Padding to avoid the "unsafe" areas behind notches in the screen */
+
+    animation: 0.25s ease-out entranceFade;
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    
+}
+
+@keyframes entranceFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
