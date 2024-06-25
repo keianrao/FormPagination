@@ -17,7 +17,6 @@ function onPageLoad()
 {
     titlebar = document.getElementById("titlebar");
     
-    console.log(document.title);
     titlebar.innerText = document.title;
 }
 

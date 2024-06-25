@@ -36,3 +36,13 @@ fieldset > section {
 fieldset > section:last-of-type {
     margin-bottom: 0em;
 }
+
+br.mobile {
+    display: none;
+}
+
+@media (max-width: 30em) {
+    br.mobile {
+        display: unset;
+    }
+}

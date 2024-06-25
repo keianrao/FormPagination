@@ -28,7 +28,7 @@ html {
     height: 1em;
     padding: 0.5em;
 
-    background: linear-gradient(#f0f8ff, #d0d4f0);
+    background: linear-gradient(aliceblue, #d0d4f0);
     border-bottom: 0.1em solid #0003;
 }
 
