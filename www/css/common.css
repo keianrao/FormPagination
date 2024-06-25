@@ -1,0 +1,63 @@
+/*copyright
+
+This file is part of FormPagination.
+Written in 2024 by Keian Rao <keian.rao@gmail.com>
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+copyright*/
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+html {
+    background-color: aliceblue;
+}
+
+#titlebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 120%;
+    height: 1em;
+    padding: 0.5em;
+
+    background: linear-gradient(aliceblue, #d0d4f0);
+    border-bottom: 0.1em solid #0003;
+}
+
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* Suggested by Visual Studio Code. */
+    font-size: 100%;
+    color: black;
+    /* Black might not be the device's default colour, so set. */
+
+    width: max(30em, 65%);
+    margin: calc(1.2em + 0.6em + 1.5em) auto 0 auto;
+    max-width: 90%;
+    padding:
+        env(safe-area-inset-top, 0px)
+        env(safe-area-inset-right, 0px)
+        env(safe-area-inset-bottom, 0px)
+        env(safe-area-inset-left, 0px);
+        /* Padding to avoid the "unsafe" areas behind notches in the screen */
+
+    animation: 0.4s ease-out entranceFade;
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+   
+}
+
+@keyframes entranceFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

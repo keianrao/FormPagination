@@ -14,37 +14,37 @@ copyright-->
 <html lang="en_GB">
     <head>
         <meta charset="utf-8">
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
-            https://cordova.apache.org/docs/en/latest/
-        Some notes:
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
         <link rel="stylesheet" href="css/common.css">
-        <link rel="stylesheet" href="css/index.css">
-        <title>Project version listing</title>
+        <link rel="stylesheet" href="css/add.css">
+        <title>Add semantic version</title>
     </head>
 
     <body>
         <div id="titlebar"></div>
-        <section id="header">
-            <span id="loadStatus" class="">Waiting for page script to run.</span>
-        </section>
-        <main id="projects"></main>
-        <section id="actions">
-            <a href="add.html">Add a project version</a>
-        </section>
+        <form method="dialog"><fieldset>
+            <section>
+                <label for="projname">Project name:</label>
+                <br class="mobile" />
+                <input id="projname" name="projname" />
+            </section>
+            <section>
+                <label for="semver">New semantic version:</label>
+                <br class="mobile" />
+                <input id="semver" name="semver" />
+            </section>
+            <section>
+                <input type="Submit" />
+            </section>
+            <div id="submitError" role="alert" hidden></div>
+        </fieldset></form>
     </body>
 
-    <script src="cordova.js"></script>
     <script src="js/projects.js"></script>
     <script src="js/common.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/add.js"></script>
 </html>

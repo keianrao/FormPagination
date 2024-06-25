@@ -1,4 +1,4 @@
-/*copyright
+/* copyright
 
 This file is part of FormPagination.
 Written in 2024 by Keian Rao <keian.rao@gmail.com>
@@ -9,30 +9,21 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-copyright*/
+copyright */
 
-.projname {
-    margin: 0.5em 0 0.5em 0;
+var titlebar;
+
+function onPageLoad()
+{
+    titlebar = document.getElementById("titlebar");
+    
+    titlebar.innerText = document.title;
 }
 
-.versions {
-    border: 0.1em ridge #0002;
-    border-radius: 1em;
-    padding: 0.75em 1em;
-    margin: 0 0 1em 0;
-}
-
-.version {
-    display: inline-block;
-    border: 0.1em solid #0002;
-    background-color: #00000008;
-    border-radius: 1em;
-    padding: 0.25em 0.5em;
-    margin: 0.25em;
-    /* Why isn't line-height working here? Do inline
-    blocks not contribute to line advancement? */
-}
-
-#loadStatus.error {
-    color: darkred;
-}
+window.addEventListener('load', onPageLoad);
+/*
+* Is it actually safe to use the same function name across
+* multiple imported scripts like this? Since we add the event
+* listener immediately it seems even if the function statement
+* just overrides it'll work out.
+*/
