@@ -14,3 +14,20 @@ copyright*/
 #submitError {
     color: darkred;
 }
+
+fieldset {
+    border: none;
+    padding: 0em;
+    /* Integrate directly into page. */
+}
+
+fieldset label {
+    margin-right: 0.5em;
+}
+
+fieldset > section {
+    margin-bottom: 0.5em;
+}
+fieldset > section:last-of-type {
+    margin-bottom: 0em;
+}

@@ -16,7 +16,7 @@ copyright*/
 }
 
 html {
-    background-color: blanchedalmond;
+    background-color: aliceblue;
 }
 
 body {
@@ -24,10 +24,12 @@ body {
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     user-select: none;
     
-    font-family: system-ui;
-    width: 70%;
-    height: 96vh;
-    margin: 2vh auto 0 auto;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* Suggested by Visual Studio Code. */
+    font-size: 100%;
+
+    width: 65%;
+    margin: 1em auto 0 auto;
     padding:
         env(safe-area-inset-top, 0px)
         env(safe-area-inset-right, 0px)
