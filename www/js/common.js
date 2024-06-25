@@ -1,4 +1,4 @@
-/*copyright
+/* copyright
 
 This file is part of FormPagination.
 Written in 2024 by Keian Rao <keian.rao@gmail.com>
@@ -9,40 +9,21 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-copyright*/
+copyright */
 
-#submitError {
-    color: #ab0000;
-    border: 0.1em solid #ab0000a0;
-    background-color: #FFD0B0;
-    padding: 0.5em 1em;
-    border-radius: 1em;
-    margin-top: 1em;
-}
+var titlebar;
 
-fieldset {
-    border: none;
-    padding: 0em;
-    /* Integrate directly into page. */
+function onPageLoad()
+{
+    titlebar = document.getElementById("titlebar");
+    
+    titlebar.innerText = document.title;
 }
 
-fieldset label {
-    margin-right: 0.5em;
-}
-
-fieldset > section {
-    margin-bottom: 0.5em;
-}
-fieldset > section:last-of-type {
-    margin-bottom: 0em;
-}
-
-br.mobile {
-    display: none;
-}
-
-@media (max-width: 30em) {
-    br.mobile {
-        display: unset;
-    }
-}
+window.addEventListener('load', onPageLoad);
+/*
+* Is it actually safe to use the same function name across
+* multiple imported scripts like this? Since we add the event
+* listener immediately it seems even if the function statement
+* just overrides it'll work out.
+*/
