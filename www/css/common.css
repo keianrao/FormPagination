@@ -19,13 +19,29 @@ html {
     background-color: aliceblue;
 }
 
+#titlebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 120%;
+    height: 1em;
+    padding: 0.5em;
+
+    background: linear-gradient(#f0f8ff, #d0d4f0);
+    border-bottom: 0.1em solid #0003;
+}
+
 body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     /* Suggested by Visual Studio Code. */
     font-size: 100%;
+    color: black;
+    /* Black might not be the device's default colour, so set. */
 
     width: max(30em, 65%);
-    margin: 1em auto 0 auto;
+    margin: calc(1.2em + 0.6em + 1.5em) auto 0 auto;
+    max-width: 90%;
     padding:
         env(safe-area-inset-top, 0px)
         env(safe-area-inset-right, 0px)
